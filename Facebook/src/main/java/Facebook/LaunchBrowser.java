@@ -10,16 +10,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class LaunchBrowser  {
 	
 	WebDriver driver;
-	@Test
+	@BeforeTest
 	public void SetUp() throws IOException 
 	{
 	Properties p=new Properties();
-	FileInputStream f= new FileInputStream("C:\\Users\\sharu\\workspace\\DebitCards\\global.properties");
+	FileInputStream f= new FileInputStream("C:\\Users\\sharu\\workspace\\Facebook\\global.properties");
 	
 	p.load(f);
 	System.out.println(p.getProperty("browser"));
@@ -40,6 +41,17 @@ public class LaunchBrowser  {
 	    driver = new InternetExplorerDriver();
     }
 	
-	driver.get(p.getProperty("url"));
+	System.out.println(p.getProperty("url"));
+
+    if(p.getProperty("url").equals("facebook"))
+	{
+		driver.get("https://www.facebook.com/");
+	}
+    else if(p.getProperty("url").equals("MercuryTours"))
+	{
+		driver.get("http://newtours.demoaut.com/");
+	}
+	
+  
 }
 }

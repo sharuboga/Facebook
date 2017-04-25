@@ -2,7 +2,7 @@ package Facebook;
 
 import org.testng.annotations.Test;
 
-public class RunTest extends LaunchBrowser {
+public class Facebook extends LaunchBrowser {
 	
 	@Test
 	public void LoginFacebook() throws Exception
